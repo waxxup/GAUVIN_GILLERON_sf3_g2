@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Article;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,20 +18,15 @@ class ArticleController extends Controller
     }
 
     /**
-<<<<<<< HEAD
-     * @Route("/show/{id}")
+     * @Route("/show/{id}", requirements={"id" = "\d+"})
      */
-    public function showAction($id)
+    public function showAction($id, Request $request)
     {
-        return new Response('affiche moi l\'article avec l\'id: ' . $id);
-    }
+        $tag = $request->query->get('tag');
 
-=======
-     *@Route("/show/{id}")
-     */
-    public function showAction($id)
-    {
-        return new Response('affiche mon l\'article avec l\'id :'.$id);
-    }
->>>>>>> e74cfced74725f342e4827533c26b7fc6900a546
+        return new Response('affiche moi l\'article avec l\'id: ' .$id. 'avec le tag ' .$tag);
+
+        }
+
+
 }
