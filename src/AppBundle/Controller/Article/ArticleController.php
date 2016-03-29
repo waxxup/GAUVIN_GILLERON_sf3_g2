@@ -16,5 +16,12 @@ class ArticleController extends Controller
         return new Response('list of article');
     }
 
+    /**
+     * @Route("/show/{id}")
+     */
+    public function showAction($id)
+    {
+        return new Response('affiche moi l\'article avec l\'id: ' . $id);
+    }
 
 }
