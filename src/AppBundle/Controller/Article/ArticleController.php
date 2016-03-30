@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class ArticleController extends Controller
 {
     /**
@@ -14,6 +15,7 @@ class ArticleController extends Controller
      */
     public function listAction()
     {
+
         $tutorials = [
             [
                 'id' => 2,
@@ -29,7 +31,7 @@ class ArticleController extends Controller
             ],
         ];
 
-        return $this->render('AppBundle:Article:list.html.twig',[
+        return $this->render('AppBundle:Article/Partial:list.html.twig',[
                 'tutorials' => $tutorials
         ]);
     }
