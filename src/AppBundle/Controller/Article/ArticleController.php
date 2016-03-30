@@ -28,10 +28,10 @@ class ArticleController extends Controller
                 'name' => 'Laravel'
             ],
         ];
-        return $this->render('AppBundle:Article:list.html.twig',[
-            'tutorial' => $tutorials,
-        ]);
 
+        return $this->render('AppBundle:Article:list.html.twig',[
+                'tutorials' => $tutorials
+        ]);
     }
 
     /**
@@ -45,22 +45,18 @@ class ArticleController extends Controller
 
         }
 
-
     /**
-     * @Route("/show/{ArticleName}")
+     * @Route("/show/{articleName}")
      *
-     * @param $ArticleName
+     * @param $articleName
      *
      * @return Response
      */
-
-    public function showArticleAction($ArticleName)
+    public function showArticleNameAction($articleName)
     {
         return $this->render('AppBundle:Article:index.html.twig',[
-            'ArticleName' => $ArticleName,
-
-        ]);
-
+            'articleName' => $articleName,
+    ]);
     }
 
 }

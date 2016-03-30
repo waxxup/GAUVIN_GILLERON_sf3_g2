@@ -1,8 +1,7 @@
 article:
   resource: "@AppBundle/Controller/Article"
-  type:      annotation
-  prefix:    /article
-
-home:
+  type:     annotation
+  prefix:   /article
+Home:
   resource: "@AppBundle/Controller/HomeController.php"
-  type:       annotation
+  type:     annotation
