@@ -4,6 +4,6 @@ article:
   prefix:    /article
 
 movie:
-  resource: "AppBundle/Controller/Article"
+  resource: "AppBundle/Controller/Movie"
   type:     annotation
   prefix:   /movie
