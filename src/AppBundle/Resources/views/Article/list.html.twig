@@ -1,0 +1,7 @@
+<ul>
+    {% for tutorial in tutorials %}
+        <li>{{ tutorial.id }} {{  tutorial.name }}</li>
+    {% else %}
+        <li>Pas d'utilisateur trouvé.</li>
+    {%  endfor %}
+</ul>
