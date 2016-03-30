@@ -1,20 +1,20 @@
 <?php
 
-namespace AppBundle\Controller\Article;
+namespace AppBundle\Controller\Movie;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController extends Controller
+class MovieController extends Controller
 {
     /**
      * @Route("/list")
      */
     public function listAction()
     {
-        return new Response('list of article');
+        return new Response('list of movies');
     }
 
     /**
@@ -22,7 +22,7 @@ class ArticleController extends Controller
      */
     public function showAction($id, Request $request)
     {
-        dump($request);die;
-        return new Response('affiche mon l\'article avec l\'id :'.$id);
+
+        return new Response('affiche mon le film avec l\'id :'.$id);
     }
 }
