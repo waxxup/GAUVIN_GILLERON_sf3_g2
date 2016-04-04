@@ -11,18 +11,19 @@ use AppBundle\Form\Type\Article\ArticleType;
 class ArticleController extends Controller
 {
     /**
-     * @Route("/list")
+     * @Route("/list", name="liste")
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
+        $tag = $request->query->get('tag');
 
         $articleRepository = $em->getRepository('AppBundle:Article\Article');
 
         $articles = $articleRepository->findAll();
-        return $this->render('AppBundle:Article:index.html.twig', [
+        return $this->render('AppBundle:Article:Partial\list.html.twig', [
             'articles' => $articles,
+            'tag' => $tag
         ]);
     }
 
@@ -77,7 +78,7 @@ class ArticleController extends Controller
 
             $em -> flush();
 
-
+            return $this->redirectToRoute('liste');
         }
         return $this->render('AppBundle:Article:new.html.twig', [
             'form' => $form->createView(),

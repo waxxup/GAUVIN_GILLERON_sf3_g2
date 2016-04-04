@@ -7,6 +7,6 @@
         <p><label>Date de création :</label> {{ article.createdAt|date('d-m-Y')  }}</p><br>
     <p><label>Auteur : {{ article.author }}</label></p><br>
     <p><label>Contenu de l'article : </label></p><br><p>{{ article.content }}</p><br>
-        <p><label>Tag de l'article : </label> {{ article.tag }}</p><br>
+        <p><label>Tag de l'article : </label> <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p><br>
 </article>
 {% endblock %}
