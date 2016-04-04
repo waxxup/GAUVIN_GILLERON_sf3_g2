@@ -5,12 +5,47 @@
     {% endblock %}
 {% endembed %}
 
-<h2>Ajouter un article</h2>
+<div class="container show">
+    <h1>Ajouter un article</h1>
 
-{{ form_start(form) }}
-{{  form_errors(form) }}
+            {{ form_start(form) }}
+    <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_label(form.title) }}
+                {{  form_errors(form.title) }}
+                {{ form_widget(form.title, {'attr': {'placeholder': 'Titre'} }) }}
+           </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_label(form.content) }}
+                {{  form_errors(form.content) }}
+                {{ form_widget(form.content, {'attr': {'placeholder': 'Contenu'} }) }}
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_label(form.author) }}
+                {{  form_errors(form.author) }}
+                {{ form_widget(form.author, {'attr': {'placeholder': 'Auteur'} }) }}
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_label(form.tag) }}
+                {{  form_errors(form.tag) }}
+                {{ form_widget(form.tag, {'attr': {'placeholder': 'Tag'} }) }}
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_label(form.save) }}
+                {{ form_widget(form.save) }}
+            </div>
+    </div>
 
 
 
+            {{ form_end(form) }}
 
-{{ form_end(form) }}
+    </div>
