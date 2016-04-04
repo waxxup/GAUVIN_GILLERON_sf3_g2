@@ -6,23 +6,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use AppBundle\Form\Type\Article\ArticleType;
 
 class ArticleController extends Controller
 {
     /**
-     * @Route("/list")
+     * @Route("/list", name="liste")
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
+        $tag = $request->query->get('tag');
 
         $articleRepository = $em->getRepository('AppBundle:Article\Article');
 
         $articles = $articleRepository->findAll();
-        return $this->render('AppBundle:Article:index.html.twig', [
+        return $this->render('AppBundle:Article:Partial\list.html.twig', [
             'articles' => $articles,
+            'tag' => $tag
         ]);
     }
 
@@ -59,37 +60,31 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/author", name="article_author")
+     * @Route("/new")
      */
-    public function authorAction(Request $request)
-    {
-     /* $author = $request->query->get('author');
 
-        $em = $this->getDoctrine()->getManager();
-        $articleRepository = $em->getRepository('AppBundle:Article\Article')
-
-            $articles = $articleRepository */
-
-    }
-
-    /**
-     * @Route("/tag/new")
-     */
     public function newAction(Request $request)
     {
-        $form = $this->createForm(TagType::class);
+        $form = $this->createForm(ArticleType::class);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            dump($form->getData());die;
+            $em = $this->getDoctrine()->getManager();
 
+
+
+            $em->persist($form->getData());
+
+            $em -> flush();
+
+            return $this->redirectToRoute('liste');
         }
-
-        return $this->render('AppBundle:Article:tag.new.html.twig',[
+        return $this->render('AppBundle:Article:new.html.twig', [
             'form' => $form->createView(),
-
         ]);
+
     }
+
 
 }
