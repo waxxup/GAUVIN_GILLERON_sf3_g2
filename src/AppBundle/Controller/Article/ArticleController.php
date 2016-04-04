@@ -15,35 +15,32 @@ class ArticleController extends Controller
      */
     public function listAction()
     {
+        $em = $this->getDoctrine()->getManager();
 
-        $tutorials = [
-            [
-                'id' => 2,
-                'name' => 'Symfony2'
-            ],
-            [
-                'id' => 5,
-                'name' => 'Wordpress'
-            ],
-            [
-                'id' => 9,
-                'name' => 'Laravel'
-            ],
-        ];
 
-        return $this->render('AppBundle:Article:index.html.twig',[
-                'tutorials' => $tutorials
+        $articleRepository = $em->getRepository('AppBundle:Article\Article');
+
+        $articles = $articleRepository->findAll();
+        return $this->render('AppBundle:Article:index.html.twig', [
+            'articles' => $articles,
         ]);
     }
 
     /**
-     * @Route("/show/{id}", requirements={"id" = "\d+"})
+     * @Route("/show/{id}", requirements={"id" = "\d+"}, name="show")
      */
-    public function showAction($id, Request $request)
+    public function showAction($id)
     {
-        $tag = $request->query->get('tag');
+        $em = $this->getDoctrine()->getManager();
 
-        return new Response('affiche moi l\'article avec l\'id: ' .$id. 'avec le tag ' .$tag);
+
+        $articleRepository = $em->getRepository('AppBundle:Article\Article');
+
+        $article= $articleRepository->find($id);
+
+        return $this->render('AppBundle:Article:show.html.twig', [
+            'article' => $article,
+        ]);
 
         }
 

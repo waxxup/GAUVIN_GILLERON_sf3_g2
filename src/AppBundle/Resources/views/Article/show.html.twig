@@ -1,0 +1,12 @@
+{% block body %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/home.css') }}">
+
+<article>
+        <h3> Titre de l'article : {{ article.title }}</h3><br>
+        <p>Date de création : {{ article.createdAt|date('d-m-Y')  }}</p><br>
+    <p>Auteur : {{ article.author }}</p><br>
+    <p>Contenu de l'article : </p><br><p>{{ article.content }}</p><br>
+        <p>Tag de l'article : {{ article.tag }}</p><br>
+</article>
+{% endblock %}
