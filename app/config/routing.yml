@@ -1,4 +1,6 @@
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
 
-
+list:
+  path: /list
+  defaults: { _controller: AppBundle:Article:list}
