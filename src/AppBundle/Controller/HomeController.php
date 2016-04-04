@@ -14,11 +14,16 @@ class HomeController extends Controller
     public function indexAction()
     {
         /*$antispam = $this->get('antispam');
-        dump($antispam->isSpam('sefefefefefefefee')); die;*/
+        dump($antispam->isSpam('sefefefefefefefee')); die;
 
         $doctrine = $this->getDoctrine()->getManager();
 
        return $this->render('AppBundle:Home:index.html.twig');
+
+        $manager = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('AppBundle:Article\Article')
+
+            $articles = $articleRepository */
     }
 
 }

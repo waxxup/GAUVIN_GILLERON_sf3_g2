@@ -61,4 +61,38 @@ class ArticleController extends Controller
     ]);
     }
 
+    /**
+     * @Route("/author", name="article_author")
+     */
+    public function authorAction(Request $request)
+    {
+     /* $author = $request->query->get('author');
+
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('AppBundle:Article\Article')
+
+            $articles = $articleRepository */
+
+    }
+
+    /**
+     * @Route("/tag/new")
+     */
+    public function newAction(Request $request)
+    {
+        $form = $this->createForm(TagType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            dump($form->getData());die;
+
+        }
+
+        return $this->render('AppBundle:Article:tag.new.html.twig',[
+            'form' => $form->createView(),
+
+        ]);
+    }
+
 }
