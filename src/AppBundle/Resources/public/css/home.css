@@ -7,14 +7,74 @@
 
 
 }
+
 #menu {
 
     height: 75px;
     background-color: #2f2f2f;
 
 }
+
 .container {
 
     border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+
+}
+
+.container h1 {
+
+    margin-bottom: 50px;
+    font-size: 3.2em;
+    text-align: center;
+    color: rgba(0,0,0,0.8);
+    font-weight: 600;
+}
+#background {
+
+    border-radius: 5px;
+    padding: 5px 0 5px 15px;
+    background: rgba(255, 111, 125, 0.69);
+    margin-bottom: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+}
+#articles h2, h3 {
+
+    margin-left: 15px;
+
+}
+#articles b {
+
+    font-size:1em;
+    color: rgba(0,0,0,0.8);
+
+
+
+}
+.placement-btn{
+
+    float: right;
+    padding: 4% 20% 0 0;
+}
+
+.alignement-droite{
+
+    text-align: right;
+
+}
+.show {
+
+    background: rgba(255, 202, 155, 0.69);
+
+}
+.show p {
+
+    font-size: 1.6em;
+
+}
+.placement-contenu {
+
+    margin-left: 200px;
+    margin-right: 200px;
 
 }

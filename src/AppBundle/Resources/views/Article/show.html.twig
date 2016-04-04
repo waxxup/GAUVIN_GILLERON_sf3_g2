@@ -4,11 +4,14 @@
     {% block body %}
     {% endblock %}
 {% endembed %}
-<article>
-        <h3> <label>Titre de l'article :</label> {{ article.title }}</h3><br>
-        <p><label>Date de création :</label> {{ article.createdAt|date('d-m-Y')  }}</p><br>
-    <p><label>Auteur : {{ article.author }}</label></p><br>
-    <p><label>Contenu de l'article : </label></p><br><p>{{ article.content }}</p><br>
-        <p><label>Tag de l'article : </label> <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p><br>
-</article>
 
+<div class="container show">
+    <article>
+        <h1 class="text-center"> {{ article.title }}</h1><br>
+        <p><label>Tag de l'article : </label> <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p>
+        <p><label>Contenu de l'article : </label></p><br>
+        <p class="placement-contenu">{{ article.content }}</p>
+        <p class="alignement-droite"><label>Auteur :</label> {{ article.author }}</p>
+        <p class="alignement-droite"><label>Le :</label> {{ article.createdAt|date('d-m-Y')  }}</p><br>
+    </article>
+</div>
