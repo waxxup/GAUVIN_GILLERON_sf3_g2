@@ -1,7 +1,14 @@
-<ul>
-    <div id="articles">
-<a href="{{ path('liste')  }}">lzejlaz</a>
-        <a href="{{ path('create')  }}">NEW</a>
+<link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/app/css/home.css') }}">
+{% embed "::base.html.twig" %}
+    {% block body %}
+    {% endblock %}
+{% endembed %}
+
+
+<div id="articles">
+
+
         {% if    tag  == null %}
             {% for article in articles %}
 
@@ -10,20 +17,26 @@
                     <p>Tag de l'article : <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p>
 
             {% else %}
+
                 <h2>Pas d'articles trouvé.</h2>
+
             {%  endfor %}
-        {% else %}
-            <p>Le tag c'est: {{ tag }} </p>
-    {% for article in articles %}
-{% if  article.tag  ==  tag   %}
-        <h2><a href="{{ path('show',{ 'id' : article.id }) }}"> Titre de l'article : {{ article.title }}</a></h2>
-        <p>Date de création : {{ article.createdAt|date('d-m-Y')  }}</p>
-        <p>Tag de l'article : <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p>
+            {% else %}
+                    <p>Le tag c'est: {{ tag }} </p>
+
+            {% for article in articles %}
+
+                {% if  article.tag  ==  tag   %}
+                    <h2><a href="{{ path('show',{ 'id' : article.id }) }}"> Titre de l'article : {{ article.title }}</a></h2>
+                    <p>Date de création : {{ article.createdAt|date('d-m-Y')  }}</p>
+                    <p>Tag de l'article : <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p>
+
+                {% endif %}
+                {% else %}
+
+                            <h2>Pas d'articles trouvé.</h2>
+
+                {%  endfor %}
 
         {% endif %}
-    {% else %}
-        <h2>Pas d'articles trouvé.</h2>
-    {%  endfor %}
-        {% endif %}
-        </div>
-</ul>
+</div>

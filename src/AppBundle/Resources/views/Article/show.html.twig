@@ -1,7 +1,9 @@
-{% block body %}
-
-    <link rel="stylesheet" href="{{ asset('bundles/app/css/home.css') }}">
-
+<link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/app/css/home.css') }}">
+{% embed "::base.html.twig" %}
+    {% block body %}
+    {% endblock %}
+{% endembed %}
 <article>
         <h3> <label>Titre de l'article :</label> {{ article.title }}</h3><br>
         <p><label>Date de création :</label> {{ article.createdAt|date('d-m-Y')  }}</p><br>
@@ -9,4 +11,4 @@
     <p><label>Contenu de l'article : </label></p><br><p>{{ article.content }}</p><br>
         <p><label>Tag de l'article : </label> <a href="{{ path('liste',{ 'tag' : article.tag }) }}">{{ article.tag }}</a></p><br>
 </article>
-{% endblock %}
+

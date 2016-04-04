@@ -1,14 +1,21 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/home.css') }}">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+
     </head>
     <body>
-        {% block body %}
-        <h2>Projet symfony</h2>
+        {% block menu %}
+        <ul id="menu">
+            <li><a href="{{ path('liste')  }}"><button class="btn btn-primary">LISTE</button></a></li>
+            <li><a href="{{ path('create')  }}"><button class="btn btn-primary">CRÉER</button></a></li>
+        </ul>
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

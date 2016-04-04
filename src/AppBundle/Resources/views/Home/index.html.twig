@@ -1,9 +1,15 @@
-{% extends('::base.html.twig') %}
+<link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/app/css/home.css') }}">
+{% embed "::base.html.twig" %}
+    {% block body %}
+    {% endblock %}
+{% endembed %}
 
-{% block body %}
+<div class="container">
 
-    <ul>
-        <div id="articles">
+    <h1>Bienvenue sur la page d'accueil</h1>
+
+    <div id="articles">
 
 
             {% for article in articles %}
@@ -16,7 +22,6 @@
             {% else %}
                 <h2>Pas d'articles trouvé.</h2>
             {%  endfor %}
-        </div>
-    </ul>
+    </div>
 
-{% endblock %}
+</div>
