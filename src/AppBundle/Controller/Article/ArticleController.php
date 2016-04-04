@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use AppBundle\Form\Type\Article\ArticleType;
 
 class ArticleController extends Controller
 {
@@ -57,5 +57,33 @@ class ArticleController extends Controller
             'articleName' => $articleName,
     ]);
     }
+
+    /**
+     * @Route("/new")
+     */
+
+    public function newAction(Request $request)
+    {
+        $form = $this->createForm(ArticleType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+
+
+            $em->persist($form->getData());
+
+            $em -> flush();
+
+
+        }
+        return $this->render('AppBundle:Article:new.html.twig', [
+            'form' => $form->createView(),
+        ]);
+
+    }
+
 
 }
