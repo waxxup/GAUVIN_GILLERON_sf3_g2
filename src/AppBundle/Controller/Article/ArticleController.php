@@ -60,7 +60,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/new")
+     * @Route("/new", name="create")
      */
 
     public function newAction(Request $request)
